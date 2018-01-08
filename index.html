@@ -1,0 +1,350 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>@atomist/automation-seed</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">@atomist/automation-seed</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1> @atomist/automation-seed</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<h1 id="-atomist-automation-seed">@atomist/automation-seed</h1>
+				<p><a href="https://travis-ci.org/atomist/automation-seed-ts"><img src="https://travis-ci.org/atomist/automation-seed-ts.svg?branch=master" alt="Build Status"></a></p>
+				<p>This repository contains examples demonstrating use of
+				the <a href="https://atomist.com/" title="Atomist - Development Automation">Atomist</a> API.  You will find examples illustrating:</p>
+				<ul>
+					<li>Creating bot commands using <em>command handlers</em></li>
+					<li>Responding to DevOps events, e.g., commits pushed to a repository,
+					using <em>event handlers</em></li>
+				</ul>
+				<p>These examples use the <a href="https://github.com/atomist/automation-client-ts" title="@atomist/automation-client Node Module"><code>@atomist/automation-client</code></a> node
+				module to implement a local client that connects to the Atomist API.</p>
+				<h2 id="prerequisites">Prerequisites</h2>
+				<p>Below are brief instructions on how to get started running this
+					project yourself.  If you just want to use the functionality this
+					project provides, see the <a href="https://docs.atomist.com/" title="Atomist User Guide">Atomist documentation</a>.  For more
+					detailed information on developing automations, see
+				the <a href="https://docs.atomist.com/developer/" title="Atomist Developer Guide">Atomist Developer Guide</a>.</p>
+				<h3 id="slack-and-github">Slack and GitHub</h3>
+				<p>Atomist automations work best when connected to <a href="https://slack.com/" title="Slack">Slack</a>
+					and <a href="https://github.com/" title="GitHub">GitHub</a>.  If you do not have access to a Slack team and/or
+				GitHub organization, it is easy to create your own.</p>
+				<ul>
+					<li>Create a <a href="https://slack.com/get-started#create" title="Create a Slack Team">Slack team</a></li>
+					<li>Create a <a href="https://github.com/account/organizations/new" title="Create a GitHub Organization">GitHub organization</a></li>
+				</ul>
+				<p>In your Slack team, install the Atomist app in Slack, click the button
+				below.</p>
+				<p align="center">
+					<a href="https://atm.st/2wiDlUe">
+						<img alt="Add to Slack" height="50" width="174" src="https://platform.slack-edge.com/img/add_to_slack@2x.png" />
+					</a>
+				</p>
+				<p>Once installed, the Atomist bot will guide you through connecting
+				Atomist, Slack, and GitHub.</p>
+				<p>If you&#39;d rather not set up your own Slack team and GitHub
+					organization, please reach out to members of Atomist in the <code>#support</code>
+					channel of <a href="https://join.atomist.com/" title="Atomist Community Slack">atomist-community Slack team</a>.  You&#39;ll receive an
+					invitation to a <a href="https://atomist-playground.slack.com" title="Atomist Playground Slack">Slack team</a>
+					and <a href="https://github.com/atomist-playground" title="Atomist Playground GitHub Organization">GitHub organization</a> that can be used to explore this
+				new approach to writing and running automations.</p>
+				<blockquote>
+					<p><em>The Slack team ID for atomist-playground is <code>T7GMF5USG</code>.</em></p>
+				</blockquote>
+				<h3 id="node-js">Node.js</h3>
+				<p>You will need to have <a href="https://nodejs.org/" title="Node.js">Node.js</a> installed.  To verify that the
+				right versions are installed, please run:</p>
+				<pre><code>$ <span class="hljs-keyword">node</span> <span class="hljs-title">-v</span>
+v8.<span class="hljs-number">4.0</span>
+$ npm -v
+<span class="hljs-number">5.4</span>.<span class="hljs-number">1</span>
+</code></pre><p>The <code>node</code> version should be 8 or greater and the <code>npm</code> version should
+				be 5 or greater.</p>
+				<h3 id="cloning-the-repository-and-installing-dependencies">Cloning the repository and installing dependencies</h3>
+				<p>To get started run the following commands to clone the project,
+				install its dependencies, and build the project:</p>
+				<pre><code><span class="hljs-meta">$</span><span class="bash"> git <span class="hljs-built_in">clone</span> git@github.com:atomist/automation-seed-ts.git</span>
+<span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> automation-seed-ts</span>
+<span class="hljs-meta">$</span><span class="bash"> npm install</span>
+<span class="hljs-meta">$</span><span class="bash"> npm run build</span>
+</code></pre><h3 id="configuring-your-environment">Configuring your environment</h3>
+				<p>If this is the first time you will be running an Atomist API client
+					locally, you should first configure your system using the <code>atomist</code>
+				script:</p>
+				<pre><code>$ `npm bin`/atomist config
+</code></pre><p>The script does two things: records what Slack team you want your
+					automations running in and creates
+					a <a href="https://github.com/settings/tokens" title="GitHub Personal Access Tokens">GitHub personal access token</a> with &quot;repo&quot; and &quot;read:org&quot;
+				scopes.</p>
+				<p>The script will prompt you for you Slack team ID, or you can supply it
+					using the <code>--slack-team TEAM_ID</code> command-line option.  You must run
+					the automations in a Slack team of which you are a member.  You can
+				get the Slack team ID by typing <code>team</code> in a DM to the Atomist bot.</p>
+				<p>The script will prompt you for your GitHub credentials.  It needs them
+					to create the GitHub personal access token.  Atomist does not store
+					your credentials and only writes the generated token to your local
+				machine.</p>
+				<p>The Atomist API client authenticates using a GitHub personal access
+					token.  The Atomist API uses the token to confirm you are who you say
+					you are and are in a GitHub organization connected to the Slack team
+					in which you are running the automations.  In addition, it uses the
+				token when performing any operations that access the GitHub API.</p>
+				<h2 id="starting-up-the-automation-client">Starting up the automation-client</h2>
+				<p>To start the client, run the following command:</p>
+				<pre><code>$ npm <span class="hljs-keyword">run</span><span class="bash"> autostart</span>
+</code></pre><h2 id="invoking-a-command-handler-from-slack">Invoking a command handler from Slack</h2>
+				<p>This project contains the code to create and respond to a simple
+					<code>hello world</code> bot command.  The code that defines the bot command and
+					implements responding to the command, i.e., the <em>command handler</em>, can
+					be found in <a href="https://github.com/atomist/automation-seed-ts/blob/master/src/commands/HelloWorld.ts" title="HelloWorld Command Handler"><code>HelloWorld.ts</code></a>.  Once you have your local
+					automation client running (the previous step in this guide), you can
+					invoke the command handler by sending the Atomist bot the command as a
+					message.  Be sure the Atomist bot is in the channel before sending it
+				the message.</p>
+				<pre><code>/invite <span class="hljs-meta">@atomist</span>
+<span class="hljs-meta">@atomist</span> hello world
+</code></pre><p>Once you&#39;ve submitted the command in Slack, you&#39;ll see the incoming
+					and outgoing messages show up in the logs of your locally running
+					automation-client.  Ultimately, you should see the response from the
+				bot in Slack.</p>
+				<p>Feel free to modify the code in the <code>HelloWorld</code> command handler,
+				Node.js will automatically reload the client, and see what happens!</p>
+				<h2 id="triggering-an-event-handler">Triggering an event handler</h2>
+				<p>While command handlers respond to commands you send the Atomist bot,
+					<em>event handlers</em> take action when different types of events occur in
+					your development and operations environment.  Some examples of events
+					are commits pushed to a repo, or a CI build that fails, or an instance
+					of a running service that becomes unhealthy.  Example responses to those
+					events are showing the commits in a Slack message, automatically
+				restarting the build, and triggering a PagerDuty alert, respectively.</p>
+				<p>The sample event handler in this project, <a href="https://github.com/atomist/automation-seed-ts/blob/master/src/events/NotifyOnPush.ts" title="Atomist NotifyOnPush Event Handler">NotifyOnPush</a>,
+					will notice when someone pushes new commits to a repository in the
+					GitHub organization and send a notice of that push to all Slack
+				channels associated with that repository.</p>
+				<p>If you have followed the instructions above and are running these
+					automations against the atomist-playground Slack team and GitHub
+					organization, go ahead and edit the <a href="https://github.com/atomist-playground/notify-on-push" title="Atomist NotifyOnPush Repository">notify-on-push</a>
+					repository by adding some text to its <a href="https://github.com/atomist-playground/notify-on-push/edit/master/README.md" title="Edit NotifyOnPush README">README</a>.  Once you
+					have saved your changes, you should see that event appear in the
+					console logs of your locally running automation client, followed by a
+					log of the actions the event handler is taking.  Once those actions
+					are complete, you should see a new message in the
+					<a href="https://atomist-playground.slack.com/messages/C7GNF6743/" title="NotifyOnPush Slack Channel"><code>#notify-on-push</code></a> channel in the atomist-playground
+				Slack team.</p>
+				<h2 id="support">Support</h2>
+				<p>General support questions should be discussed in the <code>#support</code>
+					channel in our community Slack team
+				at <a href="https://join.atomist.com/" title="Atomist Community Slack">atomist-community.slack.com</a>.</p>
+				<p>If you find a problem, please create an <a href="https://github.com/atomist/automation-seed-ts/issues">issue</a>.</p>
+				<h2 id="development">Development</h2>
+				<p>You will need to install <a href="https://nodejs.org/" title="Node.js">node</a> to build and test this project.</p>
+				<h3 id="build-and-test">Build and Test</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Command</th>
+							<th>Reason</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>npm install</code></td>
+							<td>install all the required packages</td>
+						</tr>
+						<tr>
+							<td><code>npm run build</code></td>
+							<td>lint, compile, and test</td>
+						</tr>
+						<tr>
+							<td><code>npm start</code></td>
+							<td>start the Atomist automation client</td>
+						</tr>
+						<tr>
+							<td><code>npm run autostart</code></td>
+							<td>run the client, refreshing when files change</td>
+						</tr>
+						<tr>
+							<td><code>npm run lint</code></td>
+							<td>run tslint against the TypeScript</td>
+						</tr>
+						<tr>
+							<td><code>npm run compile</code></td>
+							<td>compile all TypeScript into JavaScript</td>
+						</tr>
+						<tr>
+							<td><code>npm test</code></td>
+							<td>run tests and ensure everything is working</td>
+						</tr>
+						<tr>
+							<td><code>npm run autotest</code></td>
+							<td>run tests continuously</td>
+						</tr>
+						<tr>
+							<td><code>npm run clean</code></td>
+							<td>remove stray compiled JavaScript files and build directory</td>
+						</tr>
+					</tbody>
+				</table>
+				<h3 id="release">Release</h3>
+				<p>To create a new release of the project, update the version in
+					package.json and then push a tag for the version.  The version must be
+					of the form <code>M.N.P</code> where <code>M</code>, <code>N</code>, and <code>P</code> are integers that form the
+					next appropriate <a href="http://semver.org">semantic version</a> for release.  The version
+				in the package.json must be the same as the tag.  For example:</p>
+				<pre><code><span class="hljs-meta">$</span><span class="bash"> npm version 1.2.3</span>
+<span class="hljs-meta">$</span><span class="bash"> git tag -a -m <span class="hljs-string">'The ABC release'</span> 1.2.3</span>
+<span class="hljs-meta">$</span><span class="bash"> git push origin 1.2.3</span>
+</code></pre><p>The Travis CI build (see badge at the top of this page) will publish
+					the NPM module and automatically create a GitHub release using the tag
+					name for the release and the comment provided on the annotated tag as
+				the contents of the release notes.</p>
+				<hr>
+				<p>Created by <a href="https://atomist.com/" title="Atomist - Development Automation">Atomist</a>.
+				Need Help?  <a href="https://join.atomist.com/" title="Atomist Community Slack">Join our Slack team</a>.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_atomist_config_.html">"atomist.config"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_commands_helloworld_.html">"commands/<wbr>Hello<wbr>World"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_events_notifyonpush_.html">"events/<wbr>Notify<wbr>OnPush"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
